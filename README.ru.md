@@ -1,5 +1,11 @@
 # VoiceAssistant server — Perplexity
 
+[![Лицензия](https://img.shields.io/github/license/billwet75/VoiceAssistant-server)](LICENSE)
+[![Релиз](https://img.shields.io/github/v/release/billwet75/VoiceAssistant-server)](https://github.com/billwet75/VoiceAssistant-server/releases)
+[![Звёзды](https://img.shields.io/github/stars/billwet75/VoiceAssistant-server)](https://github.com/billwet75/VoiceAssistant-server/stargazers)
+[![Форки](https://img.shields.io/github/forks/billwet75/VoiceAssistant-server)](https://github.com/billwet75/VoiceAssistant-server/forks)
+[![Участники](https://img.shields.io/github/contributors/billwet75/VoiceAssistant-server)](https://github.com/billwet75/VoiceAssistant-server/graphs/contributors)
+
 Посредник между Android-приложением и Perplexity Sonar API. Ключ Perplexity хранится
 только в `.env.local` на сервере и не встраивается в APK.
 

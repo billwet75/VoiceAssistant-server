@@ -2,6 +2,12 @@
 
 **English** | [Русский](README.ru.md)
 
+[![License](https://img.shields.io/github/license/billwet75/VoiceAssistant-server)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/billwet75/VoiceAssistant-server)](https://github.com/billwet75/VoiceAssistant-server/releases)
+[![Stars](https://img.shields.io/github/stars/billwet75/VoiceAssistant-server)](https://github.com/billwet75/VoiceAssistant-server/stargazers)
+[![Forks](https://img.shields.io/github/forks/billwet75/VoiceAssistant-server)](https://github.com/billwet75/VoiceAssistant-server/forks)
+[![Contributors](https://img.shields.io/github/contributors/billwet75/VoiceAssistant-server)](https://github.com/billwet75/VoiceAssistant-server/graphs/contributors)
+
 A small Node.js API proxy for
 [VoiceAssistant](https://github.com/billwet75/VoiceAssistant). It keeps the
 external AI provider key outside the Android APK and exposes a narrow endpoint
