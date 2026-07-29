@@ -11,25 +11,34 @@
 
 ## Рабочее развёртывание
 
-Основной экземпляр работает на собственном VPS с Ubuntu 24.04:
+Для доступа через интернет разверните сервер на собственном VPS и используйте
+собственный домен:
 
-- публичный адрес приложения: `https://assistant.billpost.ru`;
-- Node.js слушает только `127.0.0.1:8787`;
-- Caddy завершает TLS и проксирует запросы на Node.js;
-- телефон может пользоваться ИИ через мобильную сеть и вне дома;
-- запрос к API приложения защищён `VOICEASSISTANT_TOKEN`.
+- Node.js должен слушать только `127.0.0.1:8787`;
+- Caddy, Nginx или другой reverse proxy завершает TLS и проксирует запросы;
+- DNS-запись вашего домена должна указывать на VPS;
+- запрос к API приложения защищается отдельным `VOICEASSISTANT_TOKEN`;
+- в Android-приложении указывается ваш HTTPS-адрес.
 
 Фрагмент Caddyfile:
 
 ```caddyfile
-assistant.billpost.ru {
+assistant.example.com {
     encode zstd gzip
     reverse_proxy 127.0.0.1:8787
 }
 ```
 
-Ключ Perplexity и токен приложения задаются в окружении VPS. Их значения нельзя
-добавлять в README, Vault или Git.
+Замените `assistant.example.com` на свой домен. Ключ Perplexity и токен
+приложения задаются в окружении VPS. Их значения нельзя добавлять в README или
+Git.
+
+В `local.properties` Android-проекта задайте собственный адрес и тот же токен:
+
+```properties
+VOICEASSISTANT_SERVER_URL=https://assistant.example.com/api/ask
+VOICEASSISTANT_TOKEN=replace-with-your-own-random-token
+```
 
 ## Локальный запуск для разработки
 
@@ -49,8 +58,8 @@ adb reverse tcp:8787 tcp:8787
 ```
 
 После этого тестовая сборка, настроенная на `http://127.0.0.1:8787`, обращается
-к локальному серверу через USB. Рабочая сборка версии 1.0.0 использует публичный
-HTTPS-адрес VPS и не требует `adb reverse`.
+к локальному серверу через USB. Для работы без USB задайте собственный публичный
+HTTPS-адрес в `VOICEASSISTANT_SERVER_URL`.
 
 Проверка:
 
